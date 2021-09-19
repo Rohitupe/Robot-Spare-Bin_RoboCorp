@@ -8,9 +8,9 @@ Library         RPA.PDF
 
 # +
 *** Variables ***
-${URL}  %{Website URL}
-${User Name}    %{User Name}
-${Password}  %{Password}
+${URL}      %{Website URL}
+${User Name}        %{User Name}
+${Password}     %{Password}
 
 *** Comments ***
 Using variables from devdat/env file
@@ -22,7 +22,7 @@ Sleep Time
 
 *** Keywords ***
 Open The Intranet Website
-    Open Available Browser  ${URL}
+    Open Available Browser      ${URL}
     Maximize Browser Window
 Close Chrome Browser
     Close Browser
@@ -43,7 +43,7 @@ Log Out
 *** Keywords ***
 Download Input Excel File
     ${Download_URL} =   Catenate    ${URL}SalesData.xlsx
-    Download   ${Download_URL}  overwrite=True
+    Download        ${Download_URL}  overwrite=True
 
 *** Comments ***
 Download Input Excel files
