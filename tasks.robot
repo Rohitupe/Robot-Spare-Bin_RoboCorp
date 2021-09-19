@@ -6,16 +6,19 @@ Library         RPA.Excel.Files
 Library         RPA.PDF
 
 
+# +
 *** Variables ***
 ${URL}  %{Website URL}
 ${User Name}    %{User Name}
 ${Password}  %{Password}
 
+*** Comments ***
+Using variables from devdat/env file
+# -
+
 *** Keywords ***
 Sleep Time
     Sleep    3
-*** Comments ***
-Sleep time goes here
 
 *** Keywords ***
 Open The Intranet Website
@@ -23,8 +26,6 @@ Open The Intranet Website
     Maximize Browser Window
 Close Chrome Browser
     Close Browser
-*** Comments ***
-Open and Close Browser
 
 *** Keywords ***
 Log in
@@ -38,11 +39,16 @@ Log Out
     Click Button    id:logout
 
 
+# +
 *** Keywords ***
 Download Input Excel File
     ${Download_URL} =   Catenate    ${URL}SalesData.xlsx
     Download   ${Download_URL}  overwrite=True
 
+*** Comments ***
+Download Input Excel files
+
+# +
 *** Keywords ***
 Fill And Submit The Form
     [Arguments]  ${salesreps}
@@ -52,6 +58,11 @@ Fill And Submit The Form
     Input Text    id:salesresult    ${salesreps}[Sales]
     Select From List By Value    id:salestarget    ${salesreps}[Sales Target]
     Submit Form
+
+*** Comments ***
+Passing Arguments to perform For loop
+fill and submit sales form
+# -
 
 
 *** Keywords ***
@@ -63,16 +74,25 @@ Fill The Form Using The Data From The Excel File
     Fill And Submit The Form    ${salesreps}
     END
 
+# +
 *** Keywords ***
 Take Screenshot of Sales
     Screenshot      css:div.sales-summary     ${CURDIR}${/}output${/}SalesSummary.png
 
+*** Comments ***
+Take Screenshot and save it in Output DIR
+
+# +
 *** Keywords ***
 Export Sales Table as PDF
     Wait Until Element Is Visible    id:sales-results
     ${Sales_Results} =     Get Element Attribute    id:sales-results    outerHTML
     Html To Pdf    ${Sales_Results}    ${CURDIR}${/}output${/}Sales.pdf
+    
+*** Comments ***
+Extract take from table as outerHTML and store it in PDF
 
+# +
 *** Tasks ***
 Insert the sales data for the week and export it as a PDF.
     Download Input Excel File
@@ -89,4 +109,7 @@ Insert the sales data for the week and export it as a PDF.
     Sleep Time
     Log Out
     Sleep Time
-    Close Chrome Browser
+    [Teardown]   Close Chrome Browser
+
+*** Comments ***
+Teardown will execute even if the code fails at any point
