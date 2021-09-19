@@ -39,3 +39,13 @@ i) Now Create a Python file to get those stored credentials an use them in the a
 <center><img src="https://drive.google.com/uc?export=view&id=1OiS0K2GddJ4VJGElNAM-HF7FYaGjMmWo" alt="Python Code to get credentials"></center>
 <br />
 <img src="https://drive.google.com/uc?export=view&id=1iv4k4RoOVianVKNh0U3xu991jbH7r0Tw" alt="Import Credentials in tasks.robot">
+
+-------------------
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; b) Use Credentials Just by their name in Python code in the tasks.robot file
+
+<img src="https://drive.google.com/uc?export=view&id=1Qce_etLhXAnJa5yE9rH11KQMGxZpPXc_" alt="Use Credentials in tasks.robot">
+
+<br/>
+
+Follow the Course to learn More [Robocorp - Course I](https://robocorp.com/docs/courses/beginners-course)
