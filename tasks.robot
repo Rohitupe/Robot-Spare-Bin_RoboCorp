@@ -4,17 +4,11 @@ Library         RPA.Browser.Selenium
 Library         RPA.HTTP
 Library         RPA.Excel.Files
 Library         RPA.PDF
-
-
-# +
-*** Variables ***
-${URL}      %{Website URL}
-${User Name}        %{User Name}
-${Password}     %{Password}
+Library         RPA.Robocloud.Secrets
+Variables       variables/variables.py
 
 *** Comments ***
-Using variables from devdat/env file
-# -
+Variables are imported from the python scripts from variables/variables.py
 
 *** Keywords ***
 Sleep Time
@@ -22,14 +16,14 @@ Sleep Time
 
 *** Keywords ***
 Open The Intranet Website
-    Open Available Browser      ${URL}
+    Open Available Browser      ${WebsiteURL}
     Maximize Browser Window
 Close Chrome Browser
     Close Browser
 
 *** Keywords ***
 Log in
-    Input Text  id:username  ${User Name}
+    Input Text  id:username  ${UserName}
     Input Password  id:password  ${Password}
     Submit Form
     Wait Until Page Contains Element    id:sales-form
@@ -42,7 +36,7 @@ Log Out
 # +
 *** Keywords ***
 Download Input Excel File
-    ${Download_URL} =   Catenate    ${URL}SalesData.xlsx
+    ${Download_URL} =   Catenate    ${WebsiteURL}SalesData.xlsx
     Download        ${Download_URL}  overwrite=True
 
 *** Comments ***
