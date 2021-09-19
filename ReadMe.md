@@ -28,13 +28,13 @@ ii) In Your C Drive user Folder
 <img src="https://drive.google.com/uc?export=view&id=10hVLlsRSbKR2rsOCfvt3991vndZ0Wf2C" alt="vault.json Information">
 
 #### Setup - For Production
-i) For Production use make sure you create same Credentials in control rooms Vault with same Name/Values as mentioned in the vault.json
+i) For Production make sure you create same Credentials in control rooms Vault with same Name/Values as mentioned in the vault.json
 
 ---------------------
 
 #### <u> Step 2 </u>
 i) Now Create a Python file to get those stored credentials an use them in the automation scripts <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    a) Refer to variables folder and 'tasks.robot' in the code file on how to import the Python File in the Automation Scripts
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    a) Refer to variables folder in the code shared on github repo, also check the Python file (variables.py) and 'tasks.robot' on how to import those credentials in automation scripts.
 
 <center><img src="https://drive.google.com/uc?export=view&id=1OiS0K2GddJ4VJGElNAM-HF7FYaGjMmWo" alt="Python Code to get credentials"></center>
 <br />
@@ -42,7 +42,7 @@ i) Now Create a Python file to get those stored credentials an use them in the a
 
 -------------------
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; b) Use Credentials Just by their name in Python code in the tasks.robot file
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; b) Use imported Credentials variable Just by their name in the tasks.robot file
 
 <img src="https://drive.google.com/uc?export=view&id=1Qce_etLhXAnJa5yE9rH11KQMGxZpPXc_" alt="Use Credentials in tasks.robot">
 
